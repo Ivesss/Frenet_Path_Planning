@@ -4,7 +4,7 @@
 #include "combine_cands.cpp"
 #include "cal_global_coord.cpp"
 #include "best_path.cpp"
-#include "/home/uisee/Uisee_Project/my_project/matplotlib-cpp/matplotlibcpp.h"
+#include "/home/uisee/Uisee_Project/Ives/matplotlibcpp.h"
 
 //IF ONLY COMPILING THIS FILE, do: sudo g++ my_main.cpp -std=c++11 -I/usr/include/python2.7 -lpython2.7
 
