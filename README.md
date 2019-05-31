@@ -3,11 +3,11 @@ This is a combination of path planning algorithms based on Frenet coordinate sys
 
 Version 5/30/2019:
 
-Modulated the basic overall structure and provided program interfaces for different functionality:
-Later/longitudinal path candidate generation 
-Candidate combination
-Global coord generation 
-Optimal path selection
+Modulated the basic overall structure and provided program interfaces for different functionality:  
+1. Later/longitudinal path candidate generation    
+2. Candidate combination   
+3. Global coord generation   
+4. Optimal path selection    
 
 Visualization is done using matplotlib.h, a python package written in C++, for more detailed desciption and usage please refer to [matplotlib-cpp](https://github.com/lava/matplotlib-cpp)
 
