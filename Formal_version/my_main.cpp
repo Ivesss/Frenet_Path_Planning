@@ -4,6 +4,8 @@
 #include "combine_cands.cpp"
 #include "cal_global_coord.cpp"
 #include "best_path.cpp"
+#include "collision_checking.cpp"
+#include "obstacles.hpp"
 #include "../matplotlibcpp.h"
 
 //IF ONLY COMPILING THIS FILE, do: sudo g++ my_main.cpp -std=c++11 -I/usr/include/python2.7 -lpython2.7
@@ -30,6 +32,7 @@ int main(){
 	frenet_path_candidates::longi_cands frenet_lon_obj;
 	combine cbn_obj;
 	global_cord glo_obj;
+	check_collision ck_colli;
 	bestPath bestp;
 	//************* DEFINE CLASS OBJECTS ****************
 
@@ -45,14 +48,17 @@ int main(){
 		lat_can = frenet_lat_obj.origin_frenet(c_speed, c_d, c_d_d, c_d_dd, s0);
 		lon_can = frenet_lon_obj.origin_frenet(c_speed, c_d, c_d_d, c_d_dd, s0);
 
-		//******** Combination of Lat and Longi candidates            *********
+		//******** Combination of Lat and Longi candidates             *********
 
 		combined = cbn_obj.origin_frenet(lat_can,lon_can);
-
 
 		//********  Cal global coordinates                             *********
 
 		glo_cord = glo_obj.origin_frenet(combined, csp);
+
+		//********  Filer out obstacles                                *********
+		
+		// filered_fp = ck_colli.static_obs.method1(static_obs, glo_cord)
 
 		//********  Select best path                                   *********
 
