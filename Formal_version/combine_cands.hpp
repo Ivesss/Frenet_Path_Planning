@@ -3,16 +3,25 @@
 
 
 #include "cal_frenet_candidates.hpp"
-//#include "parameters.hpp"
 
+/*
+
+Input:
+      lateral and longitudinal candidates (two vectors)
+
+Output:
+      combined trajectory candidates (one vector)
+
+
+*/
 class combine{
 
     public:
 
-        vector<frenet_path_candidates> origin_frenet(vector<frenet_path_candidates>, vector<frenet_path_candidates>);
-        vector<frenet_path_candidates> method2(vector<frenet_path_candidates>, vector<frenet_path_candidates>);
-        vector<frenet_path_candidates> method3(vector<frenet_path_candidates>, vector<frenet_path_candidates>);
-        vector<frenet_path_candidates> method4(vector<frenet_path_candidates>, vector<frenet_path_candidates>);
+        vector<frenet_optimal_path> origin_frenet(vector<frenet_optimal_path>, vector<frenet_optimal_path>);
+        vector<frenet_optimal_path> method2(vector<frenet_optimal_path>, vector<frenet_optimal_path>);
+        vector<frenet_optimal_path> method3(vector<frenet_optimal_path>, vector<frenet_optimal_path>);
+        vector<frenet_optimal_path> method4(vector<frenet_optimal_path>, vector<frenet_optimal_path>);
 };
 
 #endif

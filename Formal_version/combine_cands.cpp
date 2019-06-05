@@ -1,10 +1,23 @@
 #include "combine_cands.hpp"
+#include "parameter_read.hpp"
 
-vector<frenet_path_candidates> combine::origin_frenet(vector<frenet_path_candidates> lat_cands, vector<frenet_path_candidates> longi_cands){
-    vector<frenet_path_candidates> fplist;
+/*
+Input
+    lateral, longitudinal candidates
+
+Output
+    combined candidates
+    
+*/
+
+
+parameter para;
+
+vector<frenet_optimal_path> combine::origin_frenet(vector<frenet_optimal_path> lat_cands, vector<frenet_optimal_path> longi_cands){
+    vector<frenet_optimal_path> fplist;
 
     for (int i=0; i<lat_cands.size(); i++){
-        frenet_path_candidates dummy;
+        frenet_optimal_path dummy;
 
         dummy.d = lat_cands[i].d;
         dummy.d_d = lat_cands[i].d_d;
@@ -12,7 +25,7 @@ vector<frenet_path_candidates> combine::origin_frenet(vector<frenet_path_candida
         dummy.d_ddd = lat_cands[i].d_ddd;
 
         for (int j=0; j<longi_cands.size(); j++){
-            frenet_path_candidates tfp = dummy;
+            frenet_optimal_path tfp = dummy;
             tfp.s = longi_cands[j].s;
             tfp.s_d = longi_cands[j].s_d;
             tfp.s_dd = longi_cands[j].s_dd;
@@ -21,36 +34,35 @@ vector<frenet_path_candidates> combine::origin_frenet(vector<frenet_path_candida
                     
             double Js = inner_product(tfp.s_ddd.begin(), tfp.s_ddd.end(), tfp.s_ddd.begin(), 0);
 
-            double ds = pow((TARGET_SPEED - tfp.s_d.back()), 2);
+            double ds = pow((para.TARGET_SPEED - tfp.s_d.back()), 2);
             //Lateral Cost
-            tfp.cd = KJ*Jp + KT * lat_cands[i].Ti + KD*tfp.d.back()*tfp.d.back();
+            tfp.cd = para.KJ*Jp + para.KT * lat_cands[i].Ti + para.KD*tfp.d.back()*tfp.d.back();
             //Longi Cost
-            tfp.cv = KJ*Js + KT*longi_cands[j].Ti + KD*ds;
+            tfp.cv = para.KJ*Js + para.KT*longi_cands[j].Ti + para.KD*ds;
             //Total Cost
-            tfp.cf = KLAT*tfp.cd + KLON*tfp.cv;
+            tfp.cf = para.KLAT*tfp.cd + para.KLON*tfp.cv;
 
             fplist.push_back(tfp);
         }
     }
     return fplist;
 
-
 }
 
 
 
 
-vector<frenet_path_candidates> combine::method2(vector<frenet_path_candidates> lat_cands, vector<frenet_path_candidates> longi_cands){
+vector<frenet_optimal_path> combine::method2(vector<frenet_optimal_path> lat_cands, vector<frenet_optimal_path> longi_cands){
     
 }
 
 
-vector<frenet_path_candidates> combine::method3(vector<frenet_path_candidates> lat_cands, vector<frenet_path_candidates> longi_cands){
+vector<frenet_optimal_path> combine::method3(vector<frenet_optimal_path> lat_cands, vector<frenet_optimal_path> longi_cands){
     
 }
 
 
 
-vector<frenet_path_candidates> combine::method4(vector<frenet_path_candidates> lat_cands, vector<frenet_path_candidates> longi_cands){
+vector<frenet_optimal_path> combine::method4(vector<frenet_optimal_path> lat_cands, vector<frenet_optimal_path> longi_cands){
     
 }

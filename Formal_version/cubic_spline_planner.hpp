@@ -6,6 +6,7 @@
 #include <vector>
 #include <cmath>
 
+
 #define NONE -1e9
 using namespace std;
 using namespace Eigen;

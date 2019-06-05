@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+# Frenet_Path_Planning
+
+Frenet path planning according to "Optimal trajectory generation for dynamic street scenarios in a Frenét Frame" from Moritz Werling, C++ version.
+=======
 # Local_traj_planning_exp
 This is a combination of path planning algorithms based on Frenet coordinate system from Moritz Werling, the basic idea is from  [Optimal Trajectory Generation for Dynamic Street Scenarios in a Frenet Frame](https://ieeexplore.ieee.org/document/5509799).
 
@@ -13,3 +18,4 @@ Visualization is done using matplotlib.h, a python package written in C++, for m
 
 Run frenet.sh executable.
 
+>>>>>>> 9e8a7fd237ad8fa467503d48a513ea51c0b0a33f

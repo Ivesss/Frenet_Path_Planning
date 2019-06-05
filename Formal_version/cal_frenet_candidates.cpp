@@ -1,50 +1,61 @@
 #include "cal_frenet_candidates.hpp"
+#include "orgin_frenet.hpp"
+#include "combine_cands.hpp"
+#include "cal_global_coord.hpp"
+#include "best_path.hpp"
 
-vector<frenet_path_candidates> frenet_path_candidates::lateral_cands::origin_frenet(double c_speed, double c_d, double c_d_d, double c_d_dd, double s0){
-	vector<frenet_path_candidates> frenet_paths;
+/*
+Body part of each frenet planning algorithms.
 
-        for(double di = -MAX_ROAD_WIDTH; di <= MAX_ROAD_WIDTH + D_ROAD_W; di += D_ROAD_W){
-            for(double Ti = MINT; Ti <= MAXT + DT; Ti += DT){
-                
-                frenet_path_candidates fp;
-                quintic lat_qp(c_d, c_d_d, c_d_dd, di, 0.0, 0.0, Ti);
-                fp.Ti = Ti;
-                for(double t = 0.0; t <= Tp; t += DT){
-                    fp.t.push_back(t);
-                    fp.d.push_back(lat_qp.calc_point(t));
-                    fp.d_d.push_back(lat_qp.calc_first_derivative(t));
-                    fp.d_dd.push_back(lat_qp.calc_second_derivative(t));
-                    fp.d_ddd.push_back(lat_qp.calc_third_derivative(t));
-                } 
-                frenet_paths.push_back(fp);
-            }
-        }
-    return frenet_paths;
+Detailed description of each function please refers to other files
+
+Input:
+    Any variables that the hpp file passed into
+
+Output:
+    One single optimal path selected
+
+*/
+frenet_optimal_path frenet_optimal_path::origin_frenet(double c_speed, double c_d, double c_d_d, double c_d_dd, double s0, Spline2D csp){
+
+        vector<frenet_optimal_path> lat_can, lon_can, combined, glo_cord;
+        frenet_optimal_path path;
+
+        initial_frenet frenet;
+        combine com_obj;
+        global_cord gl_obj;
+        bestPath bp;
+
+		lat_can = frenet.lateral_cands(c_speed, c_d, c_d_d, c_d_dd, s0);
+
+		lon_can = frenet.longi_cands(c_speed, c_d, c_d_d, c_d_dd, s0);
+
+		combined = com_obj.origin_frenet(lat_can,lon_can);
+
+		glo_cord = gl_obj.origin_frenet(combined, csp);
+
+		//********  Filer out obstacles                                *********
+		
+		// filered_fp = ck_colli.static_obs.method1(static_obs, glo_cord)
+
+		path = bp.origin_frenet(glo_cord);
+    return path;
+    
 }
 
-vector<frenet_path_candidates> frenet_path_candidates::longi_cands::origin_frenet(double c_speed, double c_d, double c_d_d, double c_d_dd, double s0){
-	vector<frenet_path_candidates> frenet_paths;
 
-        for(double tv = minV; tv <= maxV + D_T_S; tv += D_T_S){
-            for(double Ti = MINT; Ti <= MAXT + DT; Ti += DT){
+frenet_optimal_path someothermethods(){
 
-                frenet_path_candidates tfp;
-                quartic lon_qp(s0, c_speed, 0.0, tv, 0.0, Ti);
-                tfp.Ti = Ti;
-                for(double t = 0.0; t <= Tp; t += DT){
-                    tfp.t.push_back(t);
-                    tfp.s.push_back(lon_qp.calc_point(t));
-                    tfp.s_d.push_back(lon_qp.calc_first_derivative(t));
-                    tfp.s_dd.push_back(lon_qp.calc_second_derivative(t));
-                    tfp.s_ddd.push_back(lon_qp.calc_third_derivative(t));
-                }
-                frenet_paths.push_back(tfp);
-            }
-        }
-    return frenet_paths;
+
+    //No matter how the body part looks like, eventually it will return an optimal path
+
+
+    //return path;
 }
 
-vector<frenet_path_candidates> frenet_path_candidates::lateral_cands::method2(double c_speed, double c_d, double c_d_d, double c_d_dd, double s0)
-{}
 
-// Add other lat/longi candidate methods
+
+
+
+
+

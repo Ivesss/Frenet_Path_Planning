@@ -1,8 +1,17 @@
 #include "cal_global_coord.hpp"
 
+/*
+Calculate global coordingate
 
+Input
+    path candidates containning information of: s, s_d, s_dd, d, d_d, d_ddd, costs, jerks........
 
-std::vector<frenet_path_candidates> global_cord::origin_frenet(vector<frenet_path_candidates> &fplist, Spline2D csp)
+Output
+    coordinate in the global frame based on lateral and longitudinal information.
+
+*/
+
+std::vector<frenet_optimal_path> global_cord::origin_frenet(vector<frenet_optimal_path> &fplist, Spline2D csp)
 {
 	for(auto& fp : fplist)
 	{
