@@ -1,47 +1,40 @@
-// #ifndef PARAMETER_HPP
-// #define	PARAMETER_HPP
 
-#include <cstdio>
-#include <iostream>
-#include <rapidjson/document.h>
-#include <rapidjson/filereadstream.h>
-#include <vector>
+#include "parameter_read.hpp"
 
-class parameter{
-    public:
-    double MAX_SPEED;
-    double MAX_ACCEL;
-    double MAX_CURVATURE;
-    double MAX_ROAD_WIDTH;
-    double D_ROAD_W;
-    double DT;
-    double MAXT;
-    double MINT;
-    double TARGET_SPEED;
-    double D_T_S;
-    double N_S_SAMPLE;
-    double ROBOT_RADIUS;
-    double minV;
-    double maxV;
-    double KJ;
-    double KT;
-    double KLAT;
-    double KD;
-    double KLON;
-    double Tp;
-    std::vector<double> wx, wy;
+parameter para;
 
-    
-    void read_para(){
+double parameter::MAX_SPEED = 0;
+double parameter::MAX_ACCEL = 0;
+double parameter::MAX_CURVATURE = 0;
+double parameter::MAX_ROAD_WIDTH = 0;
+double parameter::D_ROAD_W = 0;
+double parameter::DT = 0;
+double parameter::MAXT = 0;
+double parameter::MINT = 0;
+double parameter::TARGET_SPEED = 0;
+double parameter::D_T_S = 0;
+double parameter::N_S_SAMPLE = 0;
+double parameter::ROBOT_RADIUS = 0;
+double parameter::minV = 0;
+double parameter::maxV = 0;
+double parameter::KJ = 0;
+double parameter::KT = 0;
+double parameter::KLAT = 0;
+double parameter::KD = 0;
+double parameter::KLON = 0;
+double parameter::Tp = 0;
+
+void parameter::read_para(){
         FILE *fp = fopen("parameter.json", "r");
         char buf[0XFFFF];
-
+        
         //FileReadStream(FILE *fp, char *buffer, std::size_t bufferSize)
         rapidjson::FileReadStream input(fp, buf, sizeof(buf));
         rapidjson::Document document;
         document.ParseStream(input);
         fclose(fp);
 
+        parameter pa;
 
         MAX_SPEED = document["max_speed"].GetDouble()/3.6; // maximum speed [m/s]
         MAX_ACCEL = document["max_acc"].GetDouble();// maximum acceleration [m/ss]
@@ -55,11 +48,13 @@ class parameter{
         D_T_S = document["sampling_t"].GetDouble()/3.6;// target speed sampling length [m/s]
         N_S_SAMPLE = document["sampling_t_num"].GetDouble();// sampling number of target speed
         ROBOT_RADIUS = document["veh_radius"].GetDouble();// robot radius [m]
-        minV = document["stable_dist"].GetDouble();
-        maxV = document["stable_time"].GetDouble();
+        minV = TARGET_SPEED - D_T_S*N_S_SAMPLE;
+        maxV = TARGET_SPEED + D_T_S*N_S_SAMPLE;
+        
         Tp = document["Tp"].GetDouble();//Time segments per every path, unstable when > 15
+
         // cost weights
-        KJ = document["KJ"].GetDouble();
+        parameter::KJ = document["KJ"].GetDouble();
         KT = document["KT"].GetDouble();
         KD = document["KD"].GetDouble();
         KLAT = document["KLAT"].GetDouble();
@@ -76,6 +71,4 @@ class parameter{
                 wy.push_back(array2[i].GetDouble());
                 }
         }
-    }
-};
-
+}

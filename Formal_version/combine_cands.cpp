@@ -11,7 +11,7 @@ Output
 */
 
 
-parameter para;
+extern parameter para;
 
 vector<frenet_optimal_path> combine::origin_frenet(vector<frenet_optimal_path> lat_cands, vector<frenet_optimal_path> longi_cands){
     vector<frenet_optimal_path> fplist;

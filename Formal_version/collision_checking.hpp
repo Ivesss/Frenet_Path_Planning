@@ -19,11 +19,7 @@ class check_collision{
     class static_obs{
 
         public:
-<<<<<<< HEAD
         vector<frenet_optimal_path> method1(std::vector<std::pair<int,int>>, vector<frenet_optimal_path>);
-=======
-        vector<frenet_path_candidates> method1(std::vector<std::pair<int,int>>, vector<frenet_path_candidates>);
->>>>>>> 9e8a7fd237ad8fa467503d48a513ea51c0b0a33f
     };
 };
 #endif

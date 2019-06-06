@@ -1,25 +1,27 @@
-#include "cal_frenet_candidates.cpp"
-#include "cubic_spline_planner.cpp"
-#include "polynomials.cpp"
-#include "combine_cands.cpp"
-#include "cal_global_coord.cpp"
-#include "best_path.cpp"
-#include "collision_checking.cpp"
+#include "cal_frenet_candidates.hpp"
+#include "cubic_spline_planner.hpp"
+#include "polynomials.hpp"
+#include "combine_cands.hpp"
+#include "cal_global_coord.hpp"
+#include "best_path.hpp"
+#include "collision_checking.hpp"
 #include "obstacles.hpp"
-#include "../matplotlibcpp.h"
+#include "parameter_read.hpp"
 
-#include "parameter_read.cpp"
+//#include "../matplotlibcpp.h"
+
+// #include "parameter_read.hpp"
 
 
 //IF ONLY COMPILING THIS FILE, do: sudo g++ my_main.cpp -std=c++11 -I/usr/include/python2.7 -lpython2.7
 
 
-using namespace matplotlibcpp;
+//using namespace matplotlibcpp;
 
 
 int main(){
 	//read parameter from json
-    parameter para;
+    extern parameter para;
     para.read_para();
 
     vecD tx, ty, tyaw, tc;
@@ -71,20 +73,20 @@ int main(){
 
 		// ************ PLOTS ***************
 
-        clf();
-        plot();
-        plot(tx, ty);
-		for (int k=0; k<glo_cord.size(); k++){
-			plot(glo_cord[k].x, glo_cord[k].y, "--g");
-		}
-        plot(path.x, path.y, "-or");
-        grid(1);	
-		pause(0.0001);
+        // clf();
+        // plot();
+        // plot(tx, ty);
+		// for (int k=0; k<glo_cord.size(); k++){
+		// 	plot(glo_cord[k].x, glo_cord[k].y, "--g");
+		// }
+        // plot(path.x, path.y, "-or");
+        // grid(1);	
+		// pause(0.0001);
 	}
 	//
-	grid(1);
-	pause(0.0001);
-	show();
+	// grid(1);
+	// pause(0.0001);
+	// show();
 	
 	return 0;
  }

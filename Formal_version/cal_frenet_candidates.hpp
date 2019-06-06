@@ -2,9 +2,17 @@
 #define	CAL_FRENET_CANDIDATES_HPP
 
 #include "cubic_spline_planner.hpp"
-#include "polynomials.hpp"
-
 #include <vector>
+//@@@@@@@@@@
+// #include "polynomials.hpp"
+// #include "combine_cands.hpp"
+// #include "cal_global_coord.hpp"
+// #include "best_path.hpp"
+// #include "collision_checking.hpp"
+// #include "obstacles.hpp"
+// #include "../matplotlibcpp.h"
+// #include "parameter_read.hpp"
+
 
 using namespace std;
 typedef vector<double> vecD;
