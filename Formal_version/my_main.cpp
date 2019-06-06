@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "cal_frenet_candidates.hpp"
 #include "cubic_spline_planner.hpp"
 #include "polynomials.hpp"
@@ -7,6 +8,15 @@
 #include "collision_checking.hpp"
 #include "obstacles.hpp"
 #include "parameter_read.hpp"
+=======
+#include "cal_frenet_candidates.cpp"
+#include "cubic_spline_planner.cpp"
+#include "polynomials.cpp"
+#include "combine_cands.cpp"
+#include "cal_global_coord.cpp"
+#include "best_path.cpp"
+#include "../matplotlibcpp.h"
+>>>>>>> 3d429ecaa5a37c31b39363034655eab4f3b1b8df
 
 //#include "../matplotlibcpp.h"
 
