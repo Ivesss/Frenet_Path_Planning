@@ -1,4 +1,4 @@
-#include "cal_global_coord.hpp"
+#include "../include/cal_global_coord.hpp"
 
 /*
 Calculate global coordingate

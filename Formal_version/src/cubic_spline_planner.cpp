@@ -1,4 +1,4 @@
-#include "cubic_spline_planner.hpp"
+#include "../include/cubic_spline_planner.hpp"
 
 // Python NONE equivalents :
 // single variable -1e9

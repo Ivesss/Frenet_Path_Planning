@@ -1,4 +1,4 @@
-#include "best_path.hpp"
+#include "../include/best_path.hpp"
 
 /*
 Chose best path according to different method.

@@ -1,4 +1,4 @@
-#include "polynomials.hpp"
+#include "../include/polynomials.hpp"
 
 quintic::quintic(double xs_t, double vxs_t, double axs_t, double xe_t, double vxe_t, double axe_t, double T)
 {

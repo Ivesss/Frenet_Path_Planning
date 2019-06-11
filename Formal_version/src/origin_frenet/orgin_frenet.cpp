@@ -1,6 +1,6 @@
-#include "orgin_frenet.hpp"
-#include "parameter_read.hpp"
-#include "polynomials.hpp"
+#include "../../include/origin_frenet/orgin_frenet.hpp"
+#include "../../include/parameter_read.hpp"
+#include "../../include/polynomials.hpp"
 
 extern parameter para;
 

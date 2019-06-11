@@ -1,30 +1,14 @@
-<<<<<<< HEAD
-#include "cal_frenet_candidates.hpp"
-#include "cubic_spline_planner.hpp"
-#include "polynomials.hpp"
-#include "combine_cands.hpp"
-#include "cal_global_coord.hpp"
-#include "best_path.hpp"
-#include "collision_checking.hpp"
-#include "obstacles.hpp"
-#include "parameter_read.hpp"
-=======
-#include "cal_frenet_candidates.cpp"
-#include "cubic_spline_planner.cpp"
-#include "polynomials.cpp"
-#include "combine_cands.cpp"
-#include "cal_global_coord.cpp"
-#include "best_path.cpp"
-#include "../matplotlibcpp.h"
->>>>>>> 3d429ecaa5a37c31b39363034655eab4f3b1b8df
+#include "../include/cal_frenet_candidates.hpp"
+#include "../include/cubic_spline_planner.hpp"
+#include "../include/polynomials.hpp"
+#include "../include/combine_cands.hpp"
+#include "../include/cal_global_coord.hpp"
+#include "../include/best_path.hpp"
+#include "../include/collision_checking.hpp"
+#include "../include/obstacles.hpp"
+#include "../include/parameter_read.hpp"
 
 //#include "../matplotlibcpp.h"
-
-// #include "parameter_read.hpp"
-
-
-//IF ONLY COMPILING THIS FILE, do: sudo g++ my_main.cpp -std=c++11 -I/usr/include/python2.7 -lpython2.7
-
 
 //using namespace matplotlibcpp;
 

@@ -1,5 +1,5 @@
-#include "combine_cands.hpp"
-#include "parameter_read.hpp"
+#include "../include/combine_cands.hpp"
+#include "../include/parameter_read.hpp"
 
 /*
 Input

@@ -1,5 +1,4 @@
 <<<<<<< HEAD
-<<<<<<< HEAD
 # Frenet_Path_Planning
 
 Frenet path planning according to "Optimal trajectory generation for dynamic street scenarios in a Frenét Frame" from Moritz Werling, C++ version.
@@ -20,8 +19,3 @@ Visualization is done using matplotlib.h, a python package written in C++, for m
 Run frenet.sh executable.
 
 >>>>>>> 9e8a7fd237ad8fa467503d48a513ea51c0b0a33f
-=======
-# Frenet_Path_Planning
-
-Frenet path planning according to "Optimal trajectory generation for dynamic street scenarios in a Frenét Frame" from Moritz Werling, C++ version.
->>>>>>> 3d429ecaa5a37c31b39363034655eab4f3b1b8df
