@@ -39,6 +39,8 @@ class frenet_optimal_path
 		
 
 		frenet_optimal_path origin_frenet(double, double, double, double, double, Spline2D); //Output 1 single optimal path.
+		frenet_optimal_path BERTHA();
+		frenet_optimal_path baidu_apollo();
 		frenet_optimal_path someothermethods(); // function variable could be anything
 
 

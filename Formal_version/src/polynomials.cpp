@@ -32,24 +32,24 @@ quintic::quintic(double xs_t, double vxs_t, double axs_t, double xe_t, double vx
 	a5 = X(2, 0);
 }
 
-double quintic::calc_point(double t)
+double quintic::calc_point(const double t) const
 {
 	double xt = a0 + a1*t + a2*t*t + a3*t*t*t + a4*t*t*t*t + a5*t*t*t*t*t;
 	return xt;
 }
 
-double quintic::calc_first_derivative(double t)
+double quintic::calc_first_derivative(const double t) const
 {
 	double xt = a1 + 2*a2*t + 3*a3*t*t + 4*a4*t*t*t + 5*a5*t*t*t*t;
 	return xt;
 }
-double quintic::calc_second_derivative(double t)
+double quintic::calc_second_derivative(const double t) const
 {
 	double xt = 2*a2 + 6*a3*t + 12*a4*t*t + 20*a5*t*t*t;
 	return xt;
 }
 
-double quintic::calc_third_derivative(double t)
+double quintic::calc_third_derivative(const double t) const
 {
 	double xt = 6*a3 + 24*a4*t + 60*a5*t*t;
 	return xt;
@@ -84,25 +84,25 @@ quartic::quartic(double xs_t, double vxs_t, double axs_t, double vxe_t, double a
 	a4 = X(1, 0);
 }
 
-double quartic::calc_point(double t)
+double quartic::calc_point(double t) const
 {
 	double xt = a0 + a1*t + a2*t*t + a3*t*t*t + a4*t*t*t*t;
 	return xt;
 }
 
-double quartic::calc_first_derivative(double t)
+double quartic::calc_first_derivative(double t) const
 {
 	double xt = a1 + 2*a2*t + 3*a3*t*t + 4*a4*t*t*t;
 	return xt;
 }
 
-double quartic::calc_second_derivative(double t)
+double quartic::calc_second_derivative(double t) const
 {
 	double xt = 2*a2 + 6*a3*t + 12*a4*t*t;
 	return xt;
 }
 
-double quartic::calc_third_derivative(double t)
+double quartic::calc_third_derivative(double t) const
 {
 	double xt = 6*a3 + 24*a4*t;
 	return xt;

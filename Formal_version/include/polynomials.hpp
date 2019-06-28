@@ -11,11 +11,12 @@ class quintic{
 private:
 	double xs, vxs, axs, xe, vxe, axe, a0, a1, a2, a3, a4, a5;
 public:
+	quintic() = default;
 	quintic(double, double, double, double, double, double, double);
-	double calc_point(double);
-	double calc_first_derivative(double);
-	double calc_second_derivative(double);
-	double calc_third_derivative(double);
+	double calc_point(const double) const;
+	double calc_first_derivative(const double) const;
+	double calc_second_derivative(const double) const;
+	double calc_third_derivative(const double) const;
 };
 
 class quartic{
@@ -23,10 +24,10 @@ private:
 	double xs, vxs, axs, vxe, axe, a0, a1, a2, a3, a4;
 public:
 	quartic(double, double, double, double, double, double);
-	double calc_point(double);
-	double calc_first_derivative(double);
-	double calc_second_derivative(double);
-	double calc_third_derivative(double);
+	double calc_point(double) const;
+	double calc_first_derivative(double) const;
+	double calc_second_derivative(double) const;
+	double calc_third_derivative(double) const;
 };
 
 #endif

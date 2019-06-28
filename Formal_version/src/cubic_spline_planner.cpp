@@ -96,7 +96,7 @@ double Spline::calc(double t) // find y at given x
 		return NONE;
 	else if(t > x[nx - 1])
 		return NONE;
-	int i = search_index(t);
+	int i = search_index(t);//search the closest point? no 
 
 	double dx = t - x[i]; 
 
@@ -146,7 +146,7 @@ y = g(s)
 ****************************/
 
 
-vecD Spline2D::calc_s(vecD x, vecD y) // approximately calculates s along the spline 
+vecD Spline2D::calc_s(vecD x, vecD y) // approximately calculates s along the spline, (curve length along the spline, (tx,ty))
 {
 	vecD dx;
 	for(int i = 1; i < x.size(); i++)
